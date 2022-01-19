@@ -1,0 +1,15 @@
+.mountain_table{
+    border: 1px solid black;
+    width:400px;
+    text-align: center;
+}
+
+.mountain_table *{
+    border: 1px solid black;
+
+}
+
+.mountain_table td{
+    padding:5px;
+}
+
