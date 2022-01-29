@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(85, 85, 85);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+
+    display:grid;
+}
+
+header{
+    background-color: rgb(63, 63, 224);
+}
+
+
+.home_link a{
+    color: lightgrey;
+}
+
+#start{
+    justify-self: center;
+}
+
