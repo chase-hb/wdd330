@@ -9,5 +9,8 @@ function ontouch(element_selector, callback_function){
 
 }
 
+function ute_connected(){
+    console.log("--utilities.js connected--");
+}
 
-export {qs, ontouch}
+export {qs, ontouch, ute_connected}
