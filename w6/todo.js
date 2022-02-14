@@ -4,6 +4,8 @@ import {read_from_ls, write_to_ls, remove_from_ls, ls_connected} from "./ls.js"
 ute_connected();
 ls_connected();
 
+
+
 ontouch(qs(".todo_button"), add_todo);
 
 //These next few event listeners needed to be added differently since they're added dynamically.
@@ -14,25 +16,99 @@ ontouch(qs('body'), function(event) {
     }
   });
 
+
+//checkbox changes class depending on whether it is checked or not, 
+//also decides if it should be displayed when checked or un-checked by comparing "current state"
   ontouch(qs('body'), function(event) {
     if (event.target.checked == true) {
       event.target.className = "checked";
+      if (current_state == "active"){
+        event.target.parentElement.style.display = "none";
+
+        }
     }
+    else if (event.target.type == "checkbox" && event.target.checked == false) {
+        event.target.className = "not_checked";
+        console.log("stupid");
+        if (current_state == "completed"){
+        event.target.parentElement.style.display = "none";
+
+        }
+        
+      }
     
   });
 
-//   ontouch(qs('active'), function(event) {
-//     if (event.target.checked == true) {
-//         event.target.style.display = hidden;
-//     }
-//   });
+
+let current_state = "all";
+let not_checked_class = document.getElementsByClassName('not_checked');
+let checked_class = document.getElementsByClassName('checked');
 
 
-//   ontouch(qs('completed'), function(event) {
-//     if (event.target.checked == false) {
-//         event.target.style.display = hidden;
-//     }
-//   });
+// button to show active/uncompleted tasks
+  ontouch(qs('.active'), active_button);
+
+  function active_button(){
+      console.log("dumb")
+    qs('.active').style.border = "2px solid black";
+    qs('.all').style.border = "none";
+    qs('.completed').style.border = "none";
+    current_state = "active";
+
+    for(let i = 0; i < checked_class.length; i++){
+        checked_class[i].parentNode.style.display = "none";
+
+    }
+    for(let i = 0; i < not_checked_class.length; i++){
+        not_checked_class[i].parentNode.style.display = "";
+    }
+  }
+
+
+// button to show completed tasks
+  ontouch(qs('.completed'), completed_button);
+
+  function completed_button(){
+    qs('.completed').style.border = "2px solid black";
+    qs('.active').style.border = "none";
+    qs('.all').style.border = "none";
+    current_state = "completed";
+
+        
+    for(let i = 0; i < checked_class.length; i++){
+        checked_class[i].parentNode.style.display = "";
+
+    }
+    for(let i = 0; i < not_checked_class.length; i++){
+        not_checked_class[i].parentNode.style.display = "none";
+    }
+  }
+    
+    
+    
+    
+
+  
+
+  ontouch(qs('.all'), all_button)
+    
+  function all_button(){
+    qs('.all').style.border = "2px solid black";
+    qs('.active').style.border = "none";
+    qs('.completed').style.border = "none";
+    current_state = "all";
+
+
+    for(let i = 0; i < checked_class.length; i++){
+        checked_class[i].parentNode.style.display = "";
+
+    }
+    for(let i = 0; i < not_checked_class.length; i++){
+        not_checked_class[i].parentNode.style.display = "";
+    }
+  }  
+   
+
 
 
 let todo_list_section = qs(".todo_list");
@@ -56,6 +132,8 @@ function add_todo(){
     let new_remove_button = document.createElement("input");
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.className = "not_checked";
+
     
     new_remove_button.type = "button";
     new_remove_button.value = "X";
@@ -86,6 +164,8 @@ function list_restore(){
         let new_remove_button = document.createElement("input");
         let checkbox = document.createElement("input")
         checkbox.type = "checkbox";
+        checkbox.className = "not_checked";
+
 
         new_remove_button.type = "button";
         new_remove_button.value = "X";
