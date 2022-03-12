@@ -1,0 +1,31 @@
+body{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows:repeat(auto-fit, 1fr);
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: gray;
+}
+
+form{
+    grid-column: 2/3;
+    width:500px;
+    font-size: 30px;
+    background-color: rgb(112, 211, 211);
+    padding:50px;
+    border-radius: 10px;
+    color:white;
+
+}
+
+
+.username{
+    width:150px;
+    font-size: 20px;
+}
+
+h2{
+    grid-column: 2/3;
+    background-color: rgb(255, 242, 166);
+    padding:20px;
+
+}
