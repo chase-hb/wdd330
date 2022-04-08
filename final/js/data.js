@@ -19,7 +19,7 @@ async function data_sort(username){
 
     await user_data_sort();
     await repo_data_sort();
-    
+    console.log(user_json)
     
 
 }

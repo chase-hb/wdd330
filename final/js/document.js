@@ -59,8 +59,8 @@ async function user_populate(){
             
             if (user_data_objects[index] === "github_url"){
                 let new_a = document.createElement("a");
-                new_a.innerText = data.name;
-                new_a.setAttribute("href", data.github_url);
+                new_a.innerText = li_title;
+                new_a.setAttribute("href", data);
                 new_li.innerText = "";
                 new_li.appendChild(new_a);
             }
@@ -79,10 +79,9 @@ async function repo_populate(){
         let new_li = document.createElement("li");
         let new_a = document.createElement("a");
         let li_class = "repo_" + (i + 1).toString();
-        let li_title = (i + 1).toString() + ". ";
+        
 
         new_li.setAttribute( "class", li_class)
-        new_li.innerText = li_title;
         new_a.innerText = current_repo.name;
         new_a.setAttribute("href", current_repo.html_url);
         new_li.appendChild(new_a);
