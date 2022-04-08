@@ -36,9 +36,6 @@ main p{
     grid-column: 2/3;
 }
 
-#user_repo_header{
-}
-
 footer ul{
     width:50%;
     display:grid;
