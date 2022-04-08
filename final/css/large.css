@@ -14,10 +14,6 @@
 
 
 
-    #user_repo_header{
-        grid-row: 4/5;
-    }
-
 
     .user_repo_list a:hover{
         color:rgb(247, 247, 247);
