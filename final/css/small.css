@@ -1,0 +1,36 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+
+    display:grid;
+}
+
+.hidden{
+    display: none;
+}
+
+.user_header{
+    justify-self: center;
+    text-align: center;
+}
+
+.repo_header{
+    justify-self: center;
+    text-align: center;
+}
+
+.user_data_list{
+    list-style-type: none;
+    display:grid;
+    margin-left:0px;
+}
+
+.user_data_list li{
+    padding-top:10px;
+    padding-bottom:10px;
+
+}
+
+.user_data_list img{
+    
+    max-width:75%;
+}
